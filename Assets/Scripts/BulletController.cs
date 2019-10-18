@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BulletController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -66,10 +66,11 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("killed enemy");
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            Debug.Log("touched player");
+            //SceneManager.LoadScene("MainMenu");   
+            //Destroy(collision.gameObject);
             //Destroy(this.gameObject);
         }
     }

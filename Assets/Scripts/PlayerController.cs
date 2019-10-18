@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     //public float bulletspeed;
     //public GameObject bulletspawnpoint;
     //public GameObject mine;
-    //public GameObject spawnshoottarget;
+    public GameObject spawnshoottarget;
     //public GameObject wallbouncebullet;
     //public Text debugtext;
 
@@ -46,6 +46,16 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.up * speed);
         }
 
+        if (Input.GetMouseButtonDown(0) && mousedown == false)
+        {
+            spawnShootTarget();
+            mousedown = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            mousedown = false;
+        }
+
         float radius = 25/2;
         Vector3 centerPosition = new Vector3(0,0,0); 
         float distance = Vector3.Distance(transform.position, centerPosition); 
@@ -56,6 +66,16 @@ public class PlayerController : MonoBehaviour
             fromOriginToObject *= radius / distance; 
             transform.position = centerPosition + fromOriginToObject; 
         }
+    }
+
+    public void spawnShootTarget()
+    {
+        float x = Input.mousePosition.x;
+        float y = Input.mousePosition.y;
+        var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
+        Vector3 groundedRay = new Vector3(ray.origin.x, ray.origin.y, 0);
+        GameObject item = Instantiate(spawnshoottarget, groundedRay, Quaternion.identity);
+        item.GetComponent<ShootTargetController>().target = this.gameObject;
     }
 
     /*

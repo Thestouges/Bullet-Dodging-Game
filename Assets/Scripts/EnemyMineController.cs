@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class EnemyController : MonoBehaviour
+public class EnemyMineController : MonoBehaviour
 {
-    public float speed = 6.0F;
+    public float speed = 0.1F;
+    public GameObject bullettype;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,15 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("collide");
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Arena")
         {
-            //Debug.Log("enemy killed player1");
-            //SceneManager.LoadScene("MainMenu");
+            spawnMine();
+            Destroy(this.gameObject);
         }
+    }
+
+    public void spawnMine()
+    {
+        GameObject item = Instantiate(bullettype, transform.position, Quaternion.identity);
     }
 }
