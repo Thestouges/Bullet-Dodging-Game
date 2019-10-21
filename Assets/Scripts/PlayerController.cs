@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && mousedown == false)
         {
-            spawnShootTarget();
+            //spawnShootTarget();
             mousedown = true;
         }
         if (Input.GetMouseButtonUp(0))

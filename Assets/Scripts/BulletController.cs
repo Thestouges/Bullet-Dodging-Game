@@ -68,8 +68,8 @@ public class BulletController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("touched player");
-            //SceneManager.LoadScene("MainMenu");   
+            //Debug.Log("touched player");
+            SceneManager.LoadScene("MainMenu");   
             //Destroy(collision.gameObject);
             //Destroy(this.gameObject);
         }

@@ -31,8 +31,6 @@ public class EnemyBounceSpawnController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnPerXSecond);
-
             GameObject item = Instantiate(enemy);
             var comp = item.GetComponent<FacePlayerController>();
             comp.player = aimplayer;
@@ -41,6 +39,8 @@ public class EnemyBounceSpawnController : MonoBehaviour
             Vector3 point = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0);
 
             item.transform.position = new Vector3(0, 0, 0) + point * distanceFromCenter;
+
+            yield return new WaitForSeconds(spawnPerXSecond);
         }
     }
 }
