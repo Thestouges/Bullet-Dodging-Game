@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using BayatGames.SaveGameFree;
 public class BulletController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -68,7 +69,11 @@ public class BulletController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            GameObject score = GameObject.Find("ScoreCounter");
+
+            float time = score.GetComponent<ScoreController>().score;
             //Debug.Log("touched player");
+            SaveGame.Save<float>("score", time);
             SceneManager.LoadScene("MainMenu");   
             //Destroy(collision.gameObject);
             //Destroy(this.gameObject);
