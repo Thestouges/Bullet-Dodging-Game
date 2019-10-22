@@ -356,7 +356,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6724572692041603406, guid: a5df2a5cdd9afcd4dbd1fca20be9f9bc,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 6205950292701465534, guid: 3d506f335825f204aadf2f827a9d4426,
+        type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 6963864369485025964, guid: 9656f63e351ae3d45ab8a502a9b14287,
+        type: 3}
+    - target: {fileID: 1175468768108606334, guid: 3d506f335825f204aadf2f827a9d4426,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3d506f335825f204aadf2f827a9d4426, type: 3}
 --- !u!1 &746927067
 GameObject:

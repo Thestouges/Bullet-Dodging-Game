@@ -13,10 +13,12 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnshoottarget;
     //public GameObject wallbouncebullet;
     //public Text debugtext;
+    public GameObject wall;
 
     float horizontal;
     float vertical;
 
+    public int totalWall = 1;
 
     bool mousedown;
 
@@ -46,9 +48,9 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.up * speed);
         }
 
-        if (Input.GetMouseButtonDown(0) && mousedown == false)
+        if (Input.GetMouseButtonDown(0) && mousedown == false && GameObject.FindGameObjectsWithTag("Player Wall").Length <= totalWall)
         {
-            //spawnShootTarget();
+            spawnWall();
             mousedown = true;
         }
         if (Input.GetMouseButtonUp(0))
@@ -68,6 +70,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void spawnWall()
+    {
+        float x = Input.mousePosition.x;
+        float y = Input.mousePosition.y;
+        var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
+        Vector3 groundedRay = new Vector3(ray.origin.x, ray.origin.y, 0);
+
+        GameObject item = Instantiate(wall,groundedRay, this.transform.Find("PlayerCore").transform.rotation);
+    }
+
+    /*
     public void spawnShootTarget()
     {
         float x = Input.mousePosition.x;
@@ -77,7 +90,7 @@ public class PlayerController : MonoBehaviour
         GameObject item = Instantiate(spawnshoottarget, groundedRay, Quaternion.identity);
         item.GetComponent<ShootTargetController>().target = this.gameObject;
     }
-
+    */
     /*
     private void FireBullet()
     {
