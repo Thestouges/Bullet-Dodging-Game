@@ -78,5 +78,10 @@ public class BulletController : MonoBehaviour
             //Destroy(collision.gameObject);
             //Destroy(this.gameObject);
         }
+
+        if(collision.gameObject.tag == "Player Wall")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

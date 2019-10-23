@@ -14,6 +14,7 @@ public class RandomSpawnerController : MonoBehaviour
         Time.timeScale = 1;
         start = false;
         Random.InitState(System.DateTime.Now.Millisecond);
+        SpawnItem();
     }
 
     // Update is called once per frame
@@ -32,22 +33,27 @@ public class RandomSpawnerController : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenSpawners);
 
-            int i = Random.Range(0, enemyspawners.Count);
+            SpawnItem();
+        }
+    }
 
-            GameObject spawner = Instantiate(enemyspawners[i]);
+    public void SpawnItem()
+    {
+        int i = Random.Range(0, enemyspawners.Count);
 
-            if(spawner.GetComponent<EnemyMineSpawnController>() != null)
-            {
-                spawner.GetComponent<EnemyMineSpawnController>().aimplayer = player;
-            }
-            if (spawner.GetComponent<EnemyBounceSpawnController>() != null)
-            {
-                spawner.GetComponent<EnemyBounceSpawnController>().aimplayer = player;
-            }
-            if (spawner.GetComponent<EnemyLineSpawnController>() != null)
-            {
-                spawner.GetComponent<EnemyLineSpawnController>().aimplayer = player;
-            }
+        GameObject spawner = Instantiate(enemyspawners[i]);
+
+        if (spawner.GetComponent<EnemyMineSpawnController>() != null)
+        {
+            spawner.GetComponent<EnemyMineSpawnController>().aimplayer = player;
+        }
+        if (spawner.GetComponent<EnemyBounceSpawnController>() != null)
+        {
+            spawner.GetComponent<EnemyBounceSpawnController>().aimplayer = player;
+        }
+        if (spawner.GetComponent<EnemyLineSpawnController>() != null)
+        {
+            spawner.GetComponent<EnemyLineSpawnController>().aimplayer = player;
         }
     }
 }
