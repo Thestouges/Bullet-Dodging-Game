@@ -34,6 +34,7 @@ public class BulletController : MonoBehaviour
             {
                 Vector3 rotation = new Vector3(0, 180, 0);
                 transform.eulerAngles += rotation;
+                GetComponent<Rigidbody2D>().angularVelocity = 0;
                 GetComponent<Rigidbody2D>().velocity = transform.up*bulletspeed;
                 wallbounced = 1;
                 bounces--;
@@ -42,6 +43,7 @@ public class BulletController : MonoBehaviour
             {
                 Vector3 rotation = new Vector3(180, 0, 0);
                 transform.eulerAngles += rotation;
+                GetComponent<Rigidbody2D>().angularVelocity = 0;
                 GetComponent<Rigidbody2D>().velocity = transform.up * bulletspeed;
                 wallbounced = 2;
                 bounces--;
@@ -50,6 +52,7 @@ public class BulletController : MonoBehaviour
             {
                 Vector3 rotation = new Vector3(0, 180, 0);
                 transform.eulerAngles += rotation;
+                GetComponent<Rigidbody2D>().angularVelocity = 0;
                 GetComponent<Rigidbody2D>().velocity = transform.up * bulletspeed;
                 wallbounced = 3;
                 bounces--;
@@ -58,6 +61,7 @@ public class BulletController : MonoBehaviour
             {
                 Vector3 rotation = new Vector3(180, 0, 0);
                 transform.eulerAngles += rotation;
+                GetComponent<Rigidbody2D>().angularVelocity = 0;
                 GetComponent<Rigidbody2D>().velocity = transform.up * bulletspeed;
                 wallbounced = 4;
                 bounces--;

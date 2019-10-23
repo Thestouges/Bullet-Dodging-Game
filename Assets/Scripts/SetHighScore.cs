@@ -25,10 +25,12 @@ public class SetHighScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (setscore)
         {
             GetComponent<Text>().text = "High Score Time(Seconds): " + score;
         }
+        */
     }
 
     private void OnApplicationQuit()
