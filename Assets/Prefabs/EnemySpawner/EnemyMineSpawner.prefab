@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4e2725d601a624886e707ea101cb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPerXSecond: 2
+  spawnPerXSecond: 4
   enemy: {fileID: 4308166575889882585, guid: 9022719bb6b8fce4cb0aa476a2b37098, type: 3}
   aimplayer: {fileID: 0}
   distanceFromCenter: 20

@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.up * speed);
         }
 
-        if (Input.GetMouseButtonDown(0) && mousedown == false && GameObject.FindGameObjectsWithTag("Player Wall").Length <= totalWall)
+        if (Input.GetMouseButtonDown(0) && mousedown == false && GameObject.FindGameObjectsWithTag("Player Wall").Length < totalWall)
         {
             spawnWall();
             mousedown = true;

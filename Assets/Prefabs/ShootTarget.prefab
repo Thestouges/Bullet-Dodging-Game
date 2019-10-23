@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3bbea1ef1a30944b7b91cacefc3877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBullets: 10
+  totalBullets: 5
   bullet: {fileID: 6742327984432768784, guid: 7e282c91936ba15408600431a79751fa, type: 3}
   timeBetweenShot: 0.1
   target: {fileID: 3701587616866916388, guid: 3d506f335825f204aadf2f827a9d4426, type: 3}
